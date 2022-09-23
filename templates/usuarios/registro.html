@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="boletin">
+<div class="contenedor" id="form-reg">
+
+    <div class="py-5 text-center">
+        <h2>Registrarse</h2>
+    </div>
+
+
+
+    <div class="col-12">
+
+        <form class="formulario" action="{%url 'registro'%}" method="POST">
+            {% csrf_token %}
+
+            <h2 class="create-account">Crear una cuenta</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">Crear una cuenta gratis</p>
+            <input type="text" class="form-control" name="first_name" id="nombres" placeholder="Nombres" value="" required="">
+            <input type="text" class="form-control" name="last_name" id="nombres" placeholder="Apellidos" value="" required="">
+            <input type="text" class="form-control" name="username" id="nombres" placeholder="Usuario" value="" required="">
+            <input type="email" class="form-control" name="correo" id="email" placeholder="correo@ejemplo.com">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña">
+            <div class="col-12">
+                <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                <select class="form-control" name="rol" id="tipoUsuario">
+                    <option value="admin">Administrador del Sistema</option>
+                    <option value="gerente" selected>Gerente de Finca</option>
+                    <option value="cliente">Asistente de Finca</option>
+                </select>
+            </div>
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+    <div class="container-form sign-in">
+        <form class="formulario">
+            <h2 class="create-account">Iniciar Sesion</h2>
+            <div class="iconos">
+                <div class="border-icon">
+                    <i class='bx bxl-instagram'></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-linkedin' ></i>
+                </div>
+                <div class="border-icon">
+                    <i class='bx bxl-facebook-circle' ></i>
+                </div>
+            </div>
+            <p class="cuenta-gratis">¿Aun no tienes una cuenta?</p>
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Contraseña">
+            <input type="button" value="Iniciar Sesion">
+        </form>
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido de nuevo</h2>
+                <p>Si aun no tienes una cuenta por favor registrese aqui</p>
+                <button class="sign-in-btn">Registrarse</button>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js'%}"></script>
+
+    </form>
+</div>
+
+</div>
+
+{% endblock %}
